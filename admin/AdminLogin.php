@@ -56,7 +56,7 @@ function changing(){
 					</label>
 				</div>
 				<div class="user">
-					<label>Ум ТыЃК <input type="password" name="pwd" id="pwd" />
+					<label>УмЁЁТыЃК <input type="password" name="pwd" id="pwd" />
 					</label>
 				</div>
 				<div class="chknumber">

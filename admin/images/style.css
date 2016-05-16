@@ -11,7 +11,6 @@ body {
 	clear:both;
 	height:318px;
 	width:847px;
-	background:url(../images/login_04.gif) no-repeat;
 }
 #center {
 	height:84px;
@@ -20,7 +19,6 @@ body {
 #center_left {
 	margin-left:216px;
 	float:left;
-	background:url(../images/login_06.gif) no-repeat;
 	height:84px;
 	width:253px;
 }
@@ -31,36 +29,31 @@ body {
 /* END HACK*/
 #center_middle {
 	float:left;
-	background:url(../images/login_07.gif) no-repeat;
 	height:84px;
-	width:192px;
+	width:230px;
 }
 #center_middle_right {
 	float:left;
-	background:url(../images/login_08.gif) no-repeat;
 	height:84px;
 	width:26px;
 }
 #center_submit {
 	float:left;
-	background:url(../images/login_09.gif) no-repeat;
 	height:84px;
 	width:67px;
 }
 #center_right {
 	float:left;
-	background:url(../images/login_10.gif) no-repeat;
 	height:84px;
 	width:211px;
 }
 #footer {
 	margin:0 auto;
-	background:url(../images/login_11.gif) no-repeat;
 	height:206px;
 	width:847px;
 }
 INPUT {
-	width:100px;
+	width:167px;
 	height:17px;
 	background-color:#87adbf;
 	border:solid 1px #153966;

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>夏日文章CMS管理系统V1.2</title>
+<title>友盟CMS管理系统V1.2</title>
 <style type="text/css">
 <!--
 body {
@@ -67,7 +67,7 @@ a img {
         <td width="248" background="images/main_11.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="16%"><span class="STYLE5"></span></td>
-            <td width="75%"><div align="center"><span class="STYLE7">By QQ (<a href="http://www.04ie.com" target="_blank">04ie.com</a>)</span></div></td>
+            <td width="75%"><div align="center"><span class="STYLE7">Powered By UMINFO</span></div></td>
             <td width="9%">&nbsp;</td>
           </tr>
         </table></td>
