@@ -13,9 +13,9 @@ $rs=mysql_query($sql);
 $rows=mysql_fetch_assoc($rs);
 if($_POST["Submit"])
 	{
-if($rows["password"]==$_POST["password"])
+if($rows["password"]==md5($_POST["password"]))
 		{
-		$password2=$_POST["password2"];
+		$password2=md5($_POST["password2"]);
         $sql="update admin set password='$password2' where id=1";
 		mysql_query($sql);
 		echo "<script language=javascript>alert('修改成功,请重新进行登陆！');window.location='login.php'</script>";
@@ -28,7 +28,7 @@ if($rows["password"]==$_POST["password"])
 ?>
 		<script language="javascript">
 			alert("原始密码不正确,请重新输入")
-			location.href="renpassword.php";
+			location.href="ly_pwd.php";
 		</script>
 		<?php
 		}

@@ -2,7 +2,7 @@
 <?php
 if ($_POST ["Submit"]) {
 	$username = $_POST ["username"];
-	$pwd = $_POST ["pwd"];
+	$pwd = md5($_POST ["pwd"]);
 	$code = $_POST ["code"];
 	if ($code != $_SESSION ["auth"]) {
 		echo "<script language=javascript>alert('验证码不正确！');window.location='AdminLogin.php'</script>";
@@ -13,7 +13,7 @@ if ($_POST ["Submit"]) {
 	$sql = "select * from admin where username='$username' and password='$pwd'";
 	$rs = mysql_query ( $sql );
 	if (mysql_num_rows ( $rs ) == 1) {
-		$_SESSION ["pwd"] = $_POST ["pwd"];
+		$_SESSION ["pwd"] = md5($_POST ["pwd"]);
 		$_SESSION ["admin"] = session_id ();
 		echo "<script language=javascript>alert('登陆成功！');window.location='admin_index.php'</script>";
 	} else {
