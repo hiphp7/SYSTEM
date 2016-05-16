@@ -7,7 +7,6 @@ $str = iconv ( "GBK", "utf-8", "芸芸众生绿水青山名胜古迹敞开心胸便会云蒸霞蔚快乐
 if (! is_string ( $str ) || ! mb_check_encoding ( $str, "utf-8" )) {
 	exit ( "不是字符串或者不是utf-8" );
 }
-$zhongwenku_size;
 // 按UTF-8编码方式获取字符串的长度
 $zhongwenku_size = mb_strlen ( $str, "UTF-8" );
 
@@ -22,17 +21,15 @@ $result = "";
 // 图片上要写入的四个字符
 for($i = 0; $i < 4; $i ++) {
 	switch (rand ( 0, 1 )) {
-		case 0 :
-			$result .= $zhongwenku [rand ( 0, $zhongwenku_size - 1 )];
-			break;
-		case 1 :
-			$result .= dechex ( rand ( 0, 15 ) );
-			break;
+	case 0 :
+	$result .= $zhongwenku [rand ( 0, $zhongwenku_size - 1 )];
+	break;
+	case 1 :
+	$result .= dechex ( rand ( 0, 15 ) );
+	break;
 	}
 }
-
-$_SESSION ["auth"] = $result;
-
+$_SESSION ["auth"] = iconv ( "UTF-8", "gbk", $result );
 // 创建一个真彩图片 宽100，高30
 $img = imagecreatetruecolor ( 100, 30 );
 
@@ -47,7 +44,6 @@ $te = imagecolorallocate ( $img, 255, 255, 255 );
 
 // 在图片上根据载入字体可以写出特殊字体
 imagettftext ( $img, 15, rand ( 2, 9 ), 20, 20, $te, "gbk.ttf", $result );
-
 for($i = 0; $i < 3; $i ++) {
 	// $t = imagecolorallocate($img, rand(0, 255),rand(0, 255),rand(0, 255));
 	// 画线
@@ -63,5 +59,5 @@ for($i = 0; $i < 200; $i ++) {
 header ( "Content-type: image/jpeg" );
 // 输出jpeg图片至浏览器
 imagejpeg ( $img );
-imagedestroy($img);
+imagedestroy ( $img );
 ?>

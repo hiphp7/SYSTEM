@@ -1,6 +1,5 @@
 <?php require_once("../include/global.php"); ?>
 <?php
-
 if ($_POST ["Submit"]) {
 	$username = $_POST ["username"];
 	$pwd = $_POST ["pwd"];
@@ -40,7 +39,7 @@ if ($_GET ['tj'] == 'out') {
 <link rel="stylesheet" type="text/css" href="images/style.css" />
 <script language="javascript"> 
 function changing(){
-    document.getElementById('checkpic').src="verify.php?"+Math.random();
+    document.getElementById('checkpic').src="verify2.php?"+Math.random();
 } 
 </script>
 
@@ -63,7 +62,7 @@ function changing(){
 				<div class="chknumber">
 					<label>验证码： <input name="code" type="text" id="code" maxlength="16"
 						class="chknumber_input" />
-					</label> <img src="verify.php" id="checkpic" style="vertical-align: middle;width:120;height:30;"
+					</label> <img src="verify2.php" id="checkpic" style="vertical-align: middle;width:100;height:30;"
 						alt="看不清，换一张" onclick="changing();" />
 				</div>
 			</div>
