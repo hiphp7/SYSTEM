@@ -18,7 +18,7 @@ if($rows["password"]==md5($_POST["password"]))
 		$password2=md5($_POST["password2"]);
         $sql="update admin set password='$password2' where id=1";
 		mysql_query($sql);
-		echo "<script language=javascript>alert('修改成功,请重新进行登陆！');window.location='login.php'</script>";
+		echo "<script language=javascript>alert('修改成功,请重新进行登陆！');window.location='adminlogin.php'</script>";
 		exit();
 		}
 		else
@@ -66,7 +66,6 @@ if($rows["password"]==md5($_POST["password"]))
 </body>
 </html>
 <script LANGUAGE="javascript">
-<!--
 function checkspace(checkstr) {
   var str = '';
   for(i = 0; i < checkstr.length; i++) {
@@ -100,5 +99,4 @@ function check()
   }
 	document.admininfo.submit();
   }
-//-->
 </script> 
