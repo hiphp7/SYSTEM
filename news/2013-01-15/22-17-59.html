@@ -1,0 +1,179 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>脚本下载-SQLserver数据库出现日志文件已满的解决问题</title>
+<META name=keywords content="">
+<meta name="description" content="">
+<link href="/ceshi/image/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td width="196"><img src="/ceshi/image/xxcms_logo.jpg"
+				width="196" height="73"></td>
+			<td width="616" align="center"><img
+				src="/ceshi/image/xxcms_ad.jpg" width="540" height="73"></td>
+			<td width="188"><table width="90%" border="0" align="right"
+					cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="49%" align="center">[<a href="/ceshi/index.php"
+							class="xx_menu_top">返回首页 </a>]
+						</td>
+						<td width="51%" align="center">［<a
+							href="/ceshi/group/2.html" target="_blank" class="xx_menu_top">版权声明</a>］
+						</td>
+					</tr>
+					<tr>
+						<td align="center">［<a href="#" class="xx_menu_top">加入收藏</a>］
+						</td>
+						<td align="center">［<a href="/ceshi/group/3.html"
+							target="_blank" class="xx_menu_top">网站地图</a>］
+						</td>
+					</tr>
+					<tr>
+						<td align="center">［<a href="/ceshi/group/1.html"
+							target="_blank" class="xx_menu_top">关于我们</a>］
+						</td>
+						<td align="center">［<a href="/ceshi/group/4.html"
+							target="_blank" class="xx_menu_top">联系我们</a>］
+						</td>
+					</tr>
+				</table></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0" class="menu">
+		<tr>
+			<td width="10" align="left"
+				background="/ceshi/image/xxcms_bg_menu.jpg"><img
+				src="/ceshi/image/xxcms_left_menu.jpg" width="8" height="60"></td>
+			<td width="979" align="center" valign="middle"
+				background="/ceshi/image/xxcms_bg_menu.jpg"><script
+					type="text/javascript"
+					src="/ceshi/include/Function.php?action=menu2"></script></td>
+			<td width="11" align="right"
+				background="/ceshi/image/xxcms_bg_menu.jpg"><img
+				src="/ceshi/image/xxcms_right_menu.jpg" width="8" height="60"></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="5"></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td width="230" height="192" align="center" valign="top"><table
+					width="100%" border="0" cellpadding="0" cellspacing="0"
+					class="xxcms_border">
+					<tr>
+						<td height="26" background="/ceshi/image/xxcms_hdp.jpg"
+							class="xxcms_title">&nbsp;&nbsp;&nbsp;最新文章</td>
+					</tr>
+					<tr>
+						<td><table width="100%" height="28" border="0" align="center"
+								cellpadding="0" cellspacing="0">
+								<script type="text/javascript"
+									src="/ceshi/include/Function.php?action=zx"></script>
+							</table></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<tr>
+						<td height="3"></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"
+					class="xxcms_border">
+					<tr>
+						<td height="26" background="/ceshi/image/xxcms_hdp.jpg"
+							class="xxcms_title">&nbsp;&nbsp;&nbsp;推荐文章</td>
+					</tr>
+					<tr>
+						<td><table width="100%" height="28" border="0" align="center"
+								cellpadding="0" cellspacing="0">
+								<script type="text/javascript"
+									src="/ceshi/include/Function.php?action=tj"></script>
+							</table></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<tr>
+						<td height="3"></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"
+					class="xxcms_border">
+					<tr>
+						<td height="26" background="/ceshi/image/xxcms_hdp.jpg"
+							class="xxcms_title">&nbsp;&nbsp;&nbsp;点击排行</td>
+					</tr>
+					<tr>
+						<td><table width="100%" height="28" border="0" align="center"
+								cellpadding="0" cellspacing="0">
+								<script type="text/javascript"
+									src="/ceshi/include/Function.php?action=hits"></script>
+							</table></td>
+					</tr>
+				</table></td>
+			<td align="center" valign="top"><table width="99%" height="560"
+					border="0" align="right" cellpadding="0" cellspacing="0"
+					class="xxcms_border">
+					<tr>
+						<td height="414" valign="top"><table width="100%" border="0"
+								align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="39" height="26" align="center"
+										background="/ceshi/image/xxcms_bg_t.jpg"><img
+										src="/ceshi/image/xxcms_arr.jpg" width="16" height="22"></td>
+									<td align="left" background="/ceshi/image/xxcms_bg_t.jpg"
+										class="xxcms_title">脚本下载</td>
+								</tr>
+							</table>
+
+							<table width="98%" border="0" align="center" cellpadding="0"
+								cellspacing="0">
+								<tr>
+									<td height="30" align="center" valign="middle"><strong>SQLserver数据库出现日志文件已满的解决问题</strong></td>
+								</tr>
+								<tr>
+									<td height="30" align="center" valign="middle">来源：夏日博客
+										点击次数： <script type="text/javascript"
+											src="/ceshi/include/Function.php?action=dj&num=16"></script>
+										发布时间：2013-01-15 22:17:59
+									</td>
+								</tr>
+								<tr>
+									<td align="left" valign="middle">&nbsp;&nbsp;&nbsp; 今天在对SQLserver数据库进行管理维护时，发现数据库的日志文件已经达到5个G了，加上网站本身页面和备份的数据库等文件，60多个G的一个磁盘已经剩下得不多了，导至网站因为SQLserver数据库日志文件太大而出现“ 数据库 'xx' 的日志已满。请备份该数据库的事务日志以释放一些日志空间”的问题。为了尽快使用网站恢复正常使用，技术部直接备份了原数据库日志文件，然后又新建了一个数据库日志，整理出一些磁盘空间出来，这是在出现问题第一个最为便利的方法。<BR><BR>出现此错误的原因是：<BR><BR>&nbsp;&nbsp;&nbsp; sql server数据库使用时间长了，日志文件会很大，占用过多系统资源，数据库可能会报 log full 的错误，甚至磁盘空间占满让数据库处于不可用状态，这个时候我们需要清理数据库，以前有人开发了数据库日志清理工具，好像还要收费，其实很简单就可以完成这个操作，请跟我来：<BR><BR>&nbsp;&nbsp;&nbsp; 在解决问题之后，从网站又查找了两种网络上常用的方法，以备查阅使用，如下：<BR><BR>方法一：清空日志。<BR><BR>1、打开查询分析器，输入命令DUMP TRANSACTION 数据库名 WITH NO_LOG<BR><BR>2、再打开企业管理器--右键你要压缩的数据库--所有任务--收缩数据库--收缩文件--选择日志文件--在收缩方式里选择收缩至: ,这里会给出一个允许收缩到的最小M数,直接输入这个数,确定就可以了。<BR><BR>&nbsp;&nbsp;&nbsp; 方法二：有一定的风险性，因为SQL SERVER的日志文件不是即时写入数据库主文件的，如处理不当，会造成数据的损失。<BR><BR>1、删除LOG<BR><BR>分离数据库 企业管理器－＞服务器－＞数据库－＞右键－＞分离数据库<BR><BR>2、删除LOG文件<BR><BR>附加数据库 企业管理器－＞服务器－＞数据库－＞右键－＞附加数据库<BR><BR>此法生成新的LOG，大小只有500多K。<BR><BR>注意：建议使用第一种方法。<BR><BR>&nbsp;&nbsp;&nbsp; 如果以后，不想要它变大:SQL2000下使用：在数据库上点右键-&gt;属性-&gt;选项-&gt;故障恢复-模型-选择-简单模型,或用SQL语句：alter database 数据库名 set recovery simple,另外，数据库属性有两个选项，与事务日志的增长有关：Truncate log on checkpoint(此选项用于SQL7.0，SQL 2000中即故障恢复模型选择为简单模型)<BR><BR>&nbsp;&nbsp;&nbsp; 当执行CHECKPOINT 命令时如果事务日志文件超过其大小的70% 则将其内容清除在开发数据库时时常将此选项设置为True<BR><BR>&nbsp;&nbsp;&nbsp; 定期对数据库进行检查当数据库文件或日志文件的未用空间超过其大小的25%时，系统将会自动缩减文件使其未用空间等于25% 当文件大小没有超过其建立时的初始大小时不会缩减文件缩减后的文件也必须大于或等于其初始大小对事务日志文件的缩减只有在对其作备份时或将Truncate log on checkpoint 选项设为True 时才能进行。<BR><BR>&nbsp;&nbsp;&nbsp; 注意：一般立成建立的数据库默认属性已设好，但碰到意外情况使数据库属性被更改，请用户清空日志后，检查数据库的以上属性，以防事务日志再次充满。&#65279; </td>
+								</tr>
+							</table></td>
+					</tr>
+				</table></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="5"></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0" bgcolor="#DCDCDC">
+		<tr>
+			<td height="1"></td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+		<tr>
+			<td height="60" align="center"><script type="text/javascript"
+					src="/ceshi/include/Function.php?action=copyright"></script></td>
+		</tr>
+	</table>
+</body>
+</html>
