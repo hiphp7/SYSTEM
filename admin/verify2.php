@@ -1,27 +1,67 @@
 <?php
 session_start ();
-srand ( ( double ) microtime () * 1000000 );
-// 生成四位随机整数验证码
-while ( ($authnum = rand () % 10000) < 1000 );
-$_SESSION ['auth'] = $authnum;
-// 生成验证码图片
-Header ( "Content-type: image/PNG" );
-$im = imagecreate ( 55, 18 );
-$red = ImageColorAllocate ( $im, 255, 0, 0 );
-$white = ImageColorAllocate ( $im, 200, 200, 100 );
-$gray = ImageColorAllocate ( $im, 250, 250, 250 );
-$black = ImageColorAllocate ( $im, 120, 120, 50 );
-imagefill ( $im, 60, 20, $gray );
-// 将四位整数验证码绘入图片
-// 位置交错
-for($i = 0; $i < strlen ( $authnum ); $i ++) {
-	$i % 2 == 0 ? $top = - 1 : $top = 3;
-	imagestring ( $im, 4, 13 * $i + 4, $top, substr ( $authnum, $i, 1 ), $white );
+
+// 把GBK编码的字符串转换成UTF-8字符串，第一个参数之所以写GBK，是因为本php文件在主机中存储的编码是GBK编码
+// UTF-8编码浏览器普遍支持，通用性强，这里就转换成UTF-8
+$str = iconv ( "GBK", "utf-8", "芸芸众生绿水青山名胜古迹敞开心胸便会云蒸霞蔚快乐将永远伴随着你" );
+if (! is_string ( $str ) || ! mb_check_encoding ( $str, "utf-8" )) {
+	exit ( "不是字符串或者不是utf-8" );
 }
-for($i = 0; $i < 100; $i ++) // 加入干扰象素
-{
-	imagesetpixel ( $im, rand () % 70, rand () % 30, $black );
+$zhongwenku_size;
+// 按UTF-8编码方式获取字符串的长度
+$zhongwenku_size = mb_strlen ( $str, "UTF-8" );
+
+// 把上述字符导入数组中
+$zhongwenku = array ();
+for($i = 0; $i < $zhongwenku_size; $i ++) {
+	$zhongwenku [$i] = mb_substr ( $str, $i, 1, "UTF-8" );
 }
-ImagePNG ( $im );
-ImageDestroy ( $im );
+
+$result = "";
+
+// 图片上要写入的四个字符
+for($i = 0; $i < 4; $i ++) {
+	switch (rand ( 0, 1 )) {
+		case 0 :
+			$result .= $zhongwenku [rand ( 0, $zhongwenku_size - 1 )];
+			break;
+		case 1 :
+			$result .= dechex ( rand ( 0, 15 ) );
+			break;
+	}
+}
+
+$_SESSION ["auth"] = $result;
+
+// 创建一个真彩图片 宽100，高30
+$img = imagecreatetruecolor ( 100, 30 );
+
+// 分配背景颜色
+$bg = imagecolorallocate ( $img, 0, 0, 0 );
+
+// 分配文字颜色
+$te = imagecolorallocate ( $img, 255, 255, 255 );
+
+// 在图片上写字符串
+// imagestring($img, rand(3,8), rand(1,70), rand(1,10), $result, $te);
+
+// 在图片上根据载入字体可以写出特殊字体
+imagettftext ( $img, 15, rand ( 2, 9 ), 20, 20, $te, "gbk.ttf", $result );
+
+for($i = 0; $i < 3; $i ++) {
+	// $t = imagecolorallocate($img, rand(0, 255),rand(0, 255),rand(0, 255));
+	// 画线
+	imageline ( $img, 0, rand ( 0, 20 ), rand ( 70, 100 ), rand ( 0, 20 ), $te );
+}
+
+$t = imagecolorallocate ( $img, rand ( 0, 255 ), rand ( 0, 255 ), rand ( 0, 255 ) );
+// 为图片添加噪点
+for($i = 0; $i < 200; $i ++) {
+	imagesetpixel ( $img, rand ( 1, 100 ), rand ( 1, 30 ), $t );
+}
+// 发送http头信息 指定本次发送的是image中的jpeg
+header ( "Content-type: image/jpeg" );
+// 输出jpeg图片至浏览器
+imagejpeg ( $img );
+imagedestroy($img);
 ?>
