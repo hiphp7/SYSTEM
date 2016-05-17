@@ -18,7 +18,7 @@ include('./fckeditor/fckeditor.php') ;
 	$rs=mysql_query($sql);
 	$rows=mysql_fetch_assoc($rs);
 	$path=$rows["newspath"];
-	$root=$_SERVER['DOCUMENT_ROOT'];
+	$root=$_SERVER['DOCUMENT_ROOT'].CMS_URL;
 	$filepath=$root."/news/".$path;
 	if(file_exists($filepath))
 	{
@@ -70,7 +70,7 @@ include('./fckeditor/fckeditor.php') ;
 		$source=$_POST["source"];
 		$path=$_POST["path"];
 		$time=$_POST["time"];
-		$root=$_SERVER['DOCUMENT_ROOT'];
+		$root=$_SERVER['DOCUMENT_ROOT'].CMS_URL;
 		$filepath="$root/news/$path";
 		if(file_exists($filepath))
 		{
@@ -78,6 +78,7 @@ include('./fckeditor/fckeditor.php') ;
 			$fp=fopen($moban,"r");
 			$str=fread($fp,filesize($moban));
 			fclose($fp);
+			$str=str_replace("{-CMSURL-}",CMS_URL,$str);
 			$str=str_replace("{-type-}",$type,$str);
 			$str=str_replace("-newsid-",$newsid,$str);
 			$str=str_replace("-title-",$title,$str);
@@ -171,8 +172,8 @@ include('./fckeditor/fckeditor.php') ;
     </tr>
     <tr bordercolor="#000000" bgcolor="#cccccc">
       <td align="right" bgcolor="#cccccc" class="td_bg">新闻图片：</td>
-      <td bgcolor="#cccccc" class="td_bg"><input name="newspic" type="file" class="button" onChange="getimg()" />
-          <label id="tupian"></label></td>
+      <td bgcolor="#cccccc" class="td_bg"><input name="newspic" type="file" class="button"/>
+          </td>
     </tr>
     <tr>
       <td height="25" align="right" class="td_bg">新闻选项：</td>

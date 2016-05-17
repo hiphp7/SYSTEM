@@ -1,7 +1,7 @@
 <?php
 function Upload($file_name,$path,$pub,$size=1048576){
 	$type        = implode(",",$pub);
-	$root        = $_SERVER['DOCUMENT_ROOT'];                //查找站点根路径
+	$root        = $_SERVER['DOCUMENT_ROOT'].CMS_URL;                //查找站点根路径
 	$image       = $_FILES[$file_name];                      //接收文件域的值（一个数组）
 	if($image['name']=="")
 	{
@@ -11,6 +11,7 @@ function Upload($file_name,$path,$pub,$size=1048576){
 	$leixing     = strtolower(strrchr($image['name'],"."));  //把上传的文件名“.”以后的部分全部小写（取得文件的扩展名）
 	$suijishu    = rand(100,999);                            //取一个100--999的随机数；
 	$server_file = time().$suijishu.$leixing;                //取得上传文件名(时间戳加随机数加扩展名)
+	$image['tmp_name']=realpath($image['tmp_name']);
 	if (in_array($leixing,$pub))
 	{                           //判断扩展名，（设置上传类型）
 		 if ($image['size'] > $size){                            //比较上传文件大小和甚至的大小
@@ -30,7 +31,7 @@ function Upload($file_name,$path,$pub,$size=1048576){
 		 }
 		 if (!move_uploaded_file($image['tmp_name'],$upload_path.$server_file)){//上传文件
 			echo "<script language='javascript'>";
-			echo "alert('上传文件失败，请从新上传');";
+			echo "alert('上传文件失败，请重新上传');";
 			echo "window.history.go(-1);";
 			echo "</script>";
 			exit; 

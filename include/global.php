@@ -2,12 +2,12 @@
 // 启用session
 session_start ();
 // 是否显示系统错误
-error_reporting ( 0 );
+error_reporting ( E_ERROR | E_WARNING | E_PARSE );
 // 系统全局编码
 header ( "content-type:text/html; charset=gb2312" );
 // 系统根目录
 define ( 'XXCMS_ROOT', str_replace ( "\\", '/', substr ( dirname ( __FILE__ ), 0, - 7 ) ) );
-// 网站安装路径
+// 如果系统安装在二级目录，请指定二级目录
 define ( 'CMS_URL', '/ceshi/' );
 // 通过三目运算，得到来源网址
 $http_ref = isset ( $_SERVER ['HTTP_REFERER'] ) ? $_SERVER ['HTTP_REFERER'] : '';

@@ -53,7 +53,7 @@ require_once("global.php");
 		$is_top=$_POST["is_top"];
 		$time=date("Y-m-d H:i:s");
 		$content=$_POST["d_content"];
-		$root=$_SERVER['DOCUMENT_ROOT'];
+		$root=$_SERVER['DOCUMENT_ROOT'].CMS_URL;
 		$foldername=date("Y-m-d");
 		$folderpath=$root."/news/".$foldername;
 		if(!file_exists($folderpath))
@@ -72,6 +72,7 @@ require_once("global.php");
 			$fp=fopen($mobanpath,"r");   
 			$str=fread($fp,filesize($mobanpath));//读出模板
 			fclose($fp);
+			$str=str_replace("{-CMSURL-}",CMS_URL,$str);
 			$str=str_replace("{-type-}",$type,$str);
 			$str=str_replace("-title-",$title,$str);
 			$str=str_replace("-keywords-",$keywords,$str);
@@ -144,8 +145,8 @@ require_once("global.php");
     </tr>
     <tr bordercolor="#000000" bgcolor="#cccccc">
       <td align="right" bgcolor="#cccccc" class="td_bg">新闻图片：</td>
-      <td bgcolor="#cccccc" class="td_bg"><input name="newspic" type="file" class="button" onchange="getimg()">
-          <label id="tupian"></label></td>
+      <td bgcolor="#cccccc" class="td_bg"><input name="newspic" type="file" class="button" >
+         <!--  <label id="tupian"></label> --></td>
     </tr>
     <tr>
       <td height="25" align="right" class="td_bg">新闻选项：</td>
